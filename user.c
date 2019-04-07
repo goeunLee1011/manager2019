@@ -2,7 +2,14 @@
 
 int load_file(LOGIN* list[], char* filename){
   int count=0;
+  int anyway=0;
   FILE *datafile = fopen(filename, "r");
+  if(datafile==NULL){
+    printf("%s file not exist! make anyway?(Yes 1, No 2) >> ");
+    scanf("%d",&anyway);
+    if(anyway==1) datafile = fopen(filename,"w");
+    else 
+  }
   while(!feof(datafile)){
     list[count]=(LOGIN*)malloc(sizeof(LOGIN));
     fscanf(datafile,"%s %s",list[count]->id,list[count]->password);
