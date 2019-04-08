@@ -21,6 +21,7 @@ int load_file(LOGIN* list[], char* filename){
     fscanf(datafile,"%s %s",list[count]->id,list[count]->password);
     count++;
   }
+  count--;
   printf("%d records read!\n",count);
   fclose(datafile);
   return count;
